@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://cityEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.project.web.screens.city">
+    <data>
+        <instance id="cityDc"
+                  class="com.company.project.entity.City">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="cityDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <textField id="phoneCodeField" property="phoneCode"/>
+                <checkBox id="isDefaultCityField" property="isDefaultCity"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

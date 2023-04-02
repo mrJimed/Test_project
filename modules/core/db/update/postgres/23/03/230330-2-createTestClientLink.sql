@@ -1,0 +1,2 @@
+alter table TEST_CLIENT_LINK add constraint FK_TESCLI_ON_CAR_SERVICE foreign key (CAR_SERVICE_ID) references PROJECT_CAR_SERVICE(ID);
+alter table TEST_CLIENT_LINK add constraint FK_TESCLI_ON_CLIENT foreign key (CLIENT_ID) references PROJECT_CLIENT(ID);

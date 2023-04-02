@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://physicalPersonEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.project.web.screens.physicalperson">
+    <data>
+        <instance id="physicalPersonDc"
+                  class="com.company.project.entity.PhysicalPerson">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="physicalPersonDc">
+            <column width="350px">
+                <textField id="emailField" property="email"/>
+                <textField id="firstNameField" property="firstName"/>
+                <textField id="lastNameField" property="lastName"/>
+                <textField id="ageField" property="age"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

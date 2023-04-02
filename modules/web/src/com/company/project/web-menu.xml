@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-project" insertBefore="administration" caption="mainMsg://menu_config.application-project">
+        <item screen="project_City.browse" caption="mainMsg://menu_config.project_City.browse"/>
+        <item screen="project_CarService.browse" caption="mainMsg://menu_config.project_CarService.browse"/>
+        <item screen="project_Repair.browse" caption="mainMsg://menu_config.project_Repair.browse"/>
+        <item screen="project_Client.browse" caption="mainMsg://menu_config.project_Client.browse"/>
+        <item screen="project_PhysicalPerson.browse" caption="mainMsg://menu_config.project_PhysicalPerson.browse"/>
+        <item screen="project_LegalPerson.browse" caption="mainMsg://menu_config.project_LegalPerson.browse"/>
+    </menu>
+</menu-config>

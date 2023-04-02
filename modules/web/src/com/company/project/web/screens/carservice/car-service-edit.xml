@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://carServiceEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.project.web.screens.carservice">
+    <data>
+        <instance id="carServiceDc"
+                  class="com.company.project.entity.CarService">
+            <view extends="_local">
+                <property name="city" view="_minimal"/>
+                <property name="employees" view="_minimal">
+                    <property name="lastName"/>
+                    <property name="birthday"/>
+                    <property name="salary"/>
+                    <property name="email"/>
+                </property>
+                <property name="clients" view="_minimal"/>
+            </view>
+            <loader/>
+            <collection id="employeesDc" property="employees"/>
+            <collection id="clientsDc" property="clients"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <tabSheet id="tabSheet">
+            <tab id="carServiceTab" margin="true" spacing="true" caption="msg://carServiceTab">
+                <form id="form" dataContainer="carServiceDc">
+                    <column width="350px">
+                        <textField id="nameField" property="name"/>
+                        <textField id="addressField" property="address"/>
+                        <textField id="phoneNumberField" property="phoneNumber"/>
+                        <pickerField id="cityField" property="city">
+                            <actions>
+                                <action id="lookup" type="picker_lookup"/>
+                                <action id="clear" type="picker_clear"/>
+                            </actions>
+                        </pickerField>
+                    </column>
+                </form>
+                <groupBox id="employeesBox" caption="msg://com.company.project.entity/CarService.employees">
+                    <table id="employeesTable" dataContainer="employeesDc" width="100%" height="200px">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="firstName"/>
+                            <column id="lastName"/>
+                            <column id="birthday"/>
+                            <column id="salary"/>
+                            <column id="email"/>
+                        </columns>
+                        <buttonsPanel>
+                            <button action="employeesTable.create"/>
+                            <button action="employeesTable.edit"/>
+                            <button action="employeesTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+
+            <tab id="clientsTab" margin="true" spacing="true" caption="msg://clientsTab">
+                <groupBox id="clientsBox" caption="msg://com.company.project.entity/CarService.clients">
+                    <table id="clientsTable" dataContainer="clientsDc" width="100%" height="200px">
+                        <actions>
+                            <action id="add" type="add"/>
+                            <action id="exclude" type="exclude"/>
+                        </actions>
+                        <columns>
+                            <column id="email"/>
+                            <column id="type"/>
+                        </columns>
+                        <buttonsPanel>
+                            <button action="clientsTable.add"/>
+                            <button action="clientsTable.exclude"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+        </tabSheet>
+
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

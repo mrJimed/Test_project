@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://legalPersonEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.project.web.screens.legalperson">
+    <data>
+        <instance id="legalPersonDc"
+                  class="com.company.project.entity.LegalPerson">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="legalPersonDc">
+            <column width="350px">
+                <textField id="emailField" property="email"/>
+                <textField id="nameField" property="name"/>
+                <textField id="fieldActivityField" property="fieldActivity"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="project" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.project.entity.City</class>
+        <class>com.company.project.entity.CarService</class>
+        <class>com.company.project.entity.Employee</class>
+        <class>com.company.project.entity.Repair</class>
+        <class>com.company.project.entity.Client</class>
+        <class>com.company.project.entity.LegalPerson</class>
+        <class>com.company.project.entity.PhysicalPerson</class>
+    </persistence-unit>
+</persistence>

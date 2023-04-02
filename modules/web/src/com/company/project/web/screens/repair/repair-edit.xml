@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://repairEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.project.web.screens.repair">
+    <data>
+        <instance id="repairDc"
+                  class="com.company.project.entity.Repair">
+            <view extends="_local">
+                <property name="carService" view="_minimal"/>
+                <property name="employee" view="_minimal">
+                    <property name="lastName"/>
+                </property>
+            </view>
+            <loader/>
+        </instance>
+
+        <collection id="carServiceDc" class="com.company.project.entity.CarService" view="_minimal">
+            <loader id="carServiceDl">
+                <query>
+                    <![CDATA[select e from project_CarService e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="repairDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+<!--                <lookupField id="carServiceField" property="carService"/>-->
+                <lookupField id="carServiceField" dataContainer="repairDc" optionsContainer="carServiceDc" property="carService"/>
+                <lookupField id="employeeField" property="employee"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

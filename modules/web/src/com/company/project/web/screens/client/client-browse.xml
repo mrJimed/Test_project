@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://clientBrowse.caption"
+        focusComponent="clientsTable"
+        messagesPack="com.company.project.web.screens.client">
+    <data readOnly="true">
+        <collection id="clientsDc"
+                    class="com.company.project.entity.Client">
+            <view extends="_local"/>
+            <loader id="clientsDl">
+                <query>
+                    <![CDATA[select e from project_Client e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="clientsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="clientsTable"
+                dataLoader="clientsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="clientsTable"
+                    width="100%"
+                    dataContainer="clientsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="email"/>
+                <column id="type"/>
+            </columns>
+            <rowsCount/>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
